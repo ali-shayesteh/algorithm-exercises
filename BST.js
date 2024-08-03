@@ -41,8 +41,27 @@ class BinarySearchTree {
     find(value){
         // find the node based on the given value
         // return value should be the found node or undefined
+        if(this.root === null) return undefined;
+        var current = this.root;
+        while(true){
+            if(value === current.value) return current;
+            if(value < current.value){
+                if(current.left === null){
+                    return undefined
+                } else {
+                    current = current.left;
+                }
+            } else {
+                if(current.right === null){
+                    return undefined;
+                } else {
+                    current = current.right;
+                }
+            }
+        }
     }
     contains(value){
         // return true or false if the contains the given value or not
+        return this.find(value) !== undefined;
     }
 }
