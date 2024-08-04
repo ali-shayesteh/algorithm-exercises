@@ -29,5 +29,25 @@ class Stack {
     }
     pop(){
         // code here
+ 
+        var lastNode = this.last;
+        
+        let count = 1
+        var currentNode = this.first;
+        var lastPrev;
+        
+        while ( count < this.size) {
+            if(count === this.size - 1) {
+                lastPrev = currentNode;
+                break;
+            }
+            currentNode = currentNode.next
+            count++
+        }
+        lastPrev.next = null;
+        this.last = lastPrev;
+        this.size--;
+
+        return lastNode;
     }
 }
