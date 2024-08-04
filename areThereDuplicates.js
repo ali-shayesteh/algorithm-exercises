@@ -15,4 +15,16 @@ Space - O(1)
 
 function areThereDuplicates() {
   // good luck. (supply any arguments you deem necessary.)
+   if(args.length <= 1) return false;
+    
+    let count = {}
+    for(const arg of args) {
+        if ( count[arg] ) {
+            return true;
+            break;
+        } else {
+            count[arg] = 1;
+        }
+    }
+    return false;
 }
